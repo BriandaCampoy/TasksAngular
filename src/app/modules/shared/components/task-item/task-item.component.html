@@ -1,0 +1,18 @@
+<div (click)="onSeeDetails()" [ngStyle]="{'border-bottom':'0.25rem solid '+ taskItem.subject.color}" class="card mb-4 py-3">
+  <div class="card-body">
+    <div class="row no-gutters align-items-center">
+      <div class="col mr-2">
+        <div [ngStyle]="{'color': taskItem.subject.color}" class="text-xs font-weight-bold text-uppercase mb-1">
+          {{ taskItem.subject.name }}
+        </div>
+        <div [style.textDecoration]="taskItem.done?'line-through':''" class="h5 mb-0 font-weight-bold text-gray-800">
+          {{ taskItem.title }}
+        </div>
+      </div>
+      <div class="col-auto btn pointer">
+        <i *ngIf="taskItem.done" class="fa-solid fa-check fa-2xl" style="color: #4dff00"></i>
+        <i *ngIf="!taskItem.done" (click)="onDone($event)" class="fa-solid fa-check fa-2xl" style="color: #848683;"></i>
+      </div>
+    </div>
+  </div>
+</div>

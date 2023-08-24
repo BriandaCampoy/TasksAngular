@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row g-3">
+    <form
+      #searchForm="ngForm" class="col-md-4 d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+    >
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control bg-light border-0 small"
+          placeholder="Search for..."
+          aria-label="Search"
+          name="search"
+          [(ngModel)]="searchedValue"
+        />
+        <div class="input-group-append">
+          <button (click)="doSearch()" class="btn btn-primary" type="button">
+            <i class="fas fa-search fa-sm"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="col-md-4 d-flex align-items-center justify-content-center">
+      <a [routerLink]="['./addtask']" class="btn btn-primary btn-icon-split" type="button">
+        <span class="icon text-white-50">
+          <i class="fa-solid fa-plus"></i>
+        </span>
+        <span class="text">Add task</span>
+      </a>
+    </div>
+  </div>
+  <app-tasks-listed [TasksItems]="tasksItems"></app-tasks-listed>
+</div>

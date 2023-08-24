@@ -1,0 +1,30 @@
+<form #subjectForm="ngForm" (submit)="handleSubmit()" class="user">
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control"
+      id="InputTitle"
+      placeholder="Name"
+      name="name"
+      required
+      [(ngModel)]="subjectItem.name"
+    />
+  </div>
+  <div class="form-group">
+    <input
+      type="color"
+      class="form-control"
+      id="InputColor"
+      placeholder="Color"
+      name="Color"
+      [(ngModel)]="subjectItem.color"
+    />
+  </div>
+  <button
+    [disabled]="subjectForm.invalid"
+    type="submit"
+    class="btn btn-primary btn-user btn-block"
+  >
+    Save subject
+  </button>
+</form>

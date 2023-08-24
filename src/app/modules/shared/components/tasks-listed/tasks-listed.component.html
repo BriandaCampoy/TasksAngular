@@ -1,0 +1,12 @@
+<div class="row m-4">
+  <div class="col-lg-12">
+    <app-task-item
+      class=""
+      *ngFor="let task of TasksItems"
+      [taskItem]="task"
+    ></app-task-item>
+    <div *ngIf="TasksItems.length == 0">
+      <h3>Nothing to show</h3>
+    </div>
+  </div>
+</div>
