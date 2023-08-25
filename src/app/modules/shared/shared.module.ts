@@ -6,23 +6,32 @@ import { DateFormaterPipe } from '../../pipes/date-formater.pipe';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 import { SubjectItemComponent } from './components/subject-item/subject-item.component';
 
-
+/**
+ * Module for shared components and utilities across the application.
+ */
 @NgModule({
+  /**
+   * Declarations of components, pipes, and directives that belong to this module.
+   */
   declarations: [
     DateFormaterPipe,
     TasksListedComponent,
     TaskItemComponent,
     ConfirmationModalComponent,
-    SubjectItemComponent
+    SubjectItemComponent,
   ],
-  imports: [
-    CommonModule
-  ],
+  /**
+   * Declarations of components, pipes, and directives that belong to this module.
+   */
+  imports: [CommonModule],
+  /**
+   * Components, pipes, and directives that are made available for other modules to use.
+   */
   exports: [
     DateFormaterPipe,
     TasksListedComponent,
     TaskItemComponent,
-    SubjectItemComponent
-  ]
+    SubjectItemComponent,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

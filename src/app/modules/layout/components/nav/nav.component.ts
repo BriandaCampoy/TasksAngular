@@ -6,6 +6,9 @@ import { ConfirmationModalComponent } from 'src/app/modules/shared/components/co
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 
+/**
+ * Component responsible for the application's navigation bar.
+ */
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -18,14 +21,23 @@ export class NavComponent {
     private router: Router
   ) {}
 
+  /**
+   * The currently logged-in user's information.
+   */
   userLogged: UserInterface | undefined;
 
+  /**
+   * Initializes the component by fetching the user's profile information.
+   */
   ngOnInit() {
     this.authService.getProfile().subscribe((res) => {
       this.userLogged = res;
     });
   }
 
+  /**
+   * Handles the user logout process, including confirmation.
+   */
   onLogout() {
     const modalRef = this.modalService.open(ConfirmationModalComponent, {
       centered: true,
@@ -35,16 +47,22 @@ export class NavComponent {
     modalRef.componentInstance.result = false;
     modalRef.componentInstance.confirmed.subscribe((receivedEntry: boolean) => {
       if (receivedEntry) {
-        this.authService.logout()
+        this.authService.logout();
         this.router.navigate(['/login']);
       }
     });
   }
 
+  /**
+   * Handler for toggling the visibility of the sidebar.
+   */
   onToggleSidebar() {
     this.sidebarService.toggleAction();
   }
 
+  /**
+   * Handler for toggling the visibility of a dropdown menu.
+   */
   onToggleDropdown() {
     const dropdown = document.querySelector('#dropdown-button');
     const options = document.querySelector('#dropdown-options');

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
+/**
+ * Component for adding a new task.
+ */
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
-  styleUrls: ['./add-task.component.css']
 })
-export class AddTaskComponent {
-
-}
+export class AddTaskComponent {}

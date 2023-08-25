@@ -5,6 +5,9 @@ import { TaskComponent } from './pages/task/task.component';
 import { AddTaskComponent } from './pages/add-task/add-task.component';
 import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 
+/**
+ * Routing module for tasks-related components.
+ */
 const routes: Routes = [
   {
     path: '',

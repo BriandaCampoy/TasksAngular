@@ -10,21 +10,23 @@ import { AddSubjectComponent } from './pages/add-subject/add-subject.component';
 import { FormSubjectComponent } from './components/form-subject/form-subject.component';
 import { EditSubjectComponent } from './pages/edit-subject/edit-subject.component';
 
-
+/**
+ * Module for managing subjects-related functionality.
+ */
 @NgModule({
+  /**
+   * Declarations of components, pipes, and directives that belong to this module.
+   */
   declarations: [
     SubjectsListComponent,
     SubjectComponent,
     AddSubjectComponent,
-    // SubjectItemComponent,
     FormSubjectComponent,
-    EditSubjectComponent
+    EditSubjectComponent,
   ],
-  imports: [
-    CommonModule,
-    SubjectsRoutingModule,
-    FormsModule,
-    SharedModule
-  ]
+  /**
+   * Modules that this module depends on.
+   */
+  imports: [CommonModule, SubjectsRoutingModule, FormsModule, SharedModule],
 })
-export class SubjectsModule { }
+export class SubjectsModule {}

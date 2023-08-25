@@ -6,15 +6,18 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { FormsModule } from '@angular/forms';
 
+/**
+ * The module responsible for handling authentication-related components and functionality.
+ */
 @NgModule({
-  declarations: [
-    LoginComponent,
-    RegisterComponent
-  ],
-  imports: [
-    CommonModule,
-    AuthRoutingModule,
-    FormsModule
-  ]
+  /**
+   * Declarations of components that belong to this module.
+   */
+  declarations: [LoginComponent, RegisterComponent],
+
+  /**
+   * Declarations of components that belong to this module.
+   */
+  imports: [CommonModule, AuthRoutingModule, FormsModule],
 })
-export class AuthModule { }
+export class AuthModule {}

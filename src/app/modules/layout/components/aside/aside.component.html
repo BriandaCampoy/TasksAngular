@@ -47,19 +47,6 @@
   <li class="nav-item">
     <a
       class="nav-link collapsed"
-      [routerLink]="['./subject']"
-      data-toggle="collapse"
-      data-target="#collapseTwo"
-      aria-expanded="true"
-      aria-controls="collapseTwo"
-    >
-      <i class="fa-solid fa-book"></i>
-      <span>See Subjects</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a
-      class="nav-link collapsed"
       [routerLink]="['./task/addtask']"
       data-toggle="collapse"
       data-target="#collapseTwo"
@@ -70,6 +57,24 @@
       <span>Add Task</span>
     </a>
   </li>
+
+  <hr class="sidebar-divider" />
+  <div class="sidebar-heading">Subjects</div>
+
+  <li class="nav-item">
+    <a
+      class="nav-link collapsed"
+      [routerLink]="['./subject']"
+      data-toggle="collapse"
+      data-target="#collapseTwo"
+      aria-expanded="true"
+      aria-controls="collapseTwo"
+    >
+      <i class="fa-solid fa-book"></i>
+      <span>See Subjects</span>
+    </a>
+  </li>
+
   <li class="nav-item">
     <a
       class="nav-link collapsed"
@@ -110,6 +115,10 @@
 
   <!-- Sidebar Toggler (Sidebar) -->
   <div class="text-center d-none d-md-inline">
-    <button class="rounded-circle border-0" id="sidebarToggle" (click)="onToggleSidebar()"></button>
+    <button
+      class="rounded-circle border-0"
+      id="sidebarToggle"
+      (click)="onToggleSidebar()"
+    ></button>
   </div>
 </ul>

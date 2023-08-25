@@ -1,24 +1,36 @@
 import { Injectable } from '@angular/core';
 import { getCookie, setCookie, removeCookie } from 'typescript-cookie';
 
+/**
+ * A service responsible for handling token-related operations.
+ */
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TokenService {
+  constructor() {}
 
-  constructor() { }
-
-  saveToken(token: string){
-    setCookie('token', token, {expires:365, path:'/'})
+  /**
+   * Saves the authentication token as a cookie.
+   * @param token - The authentication token to be saved.
+   */
+  saveToken(token: string) {
+    setCookie('token', token, { expires: 365, path: '/' });
   }
 
-  getToken():string|undefined{
-    const token = getCookie('token')
+  /**
+   * Retrieves the authentication token from the cookie.
+   * @returns The authentication token if present, otherwise undefined.
+   */
+  getToken(): string | undefined {
+    const token = getCookie('token');
     return token;
   }
 
-  removeToken(){
-    removeCookie('token')
+  /**
+   * Removes the authentication token cookie.
+   */
+  removeToken() {
+    removeCookie('token');
   }
-
 }

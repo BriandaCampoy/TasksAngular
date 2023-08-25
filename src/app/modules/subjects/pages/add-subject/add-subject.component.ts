@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
+/**
+ * Component for adding a new subject.
+ */
 @Component({
   selector: 'app-add-subject',
   templateUrl: './add-subject.component.html',
-  styleUrls: ['./add-subject.component.css']
 })
-export class AddSubjectComponent {
-
-}
+export class AddSubjectComponent {}

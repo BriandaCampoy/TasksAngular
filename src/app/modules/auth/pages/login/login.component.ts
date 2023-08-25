@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { LoginInterface } from '@interfaces/login.interface';
 import { AuthService } from '@services/auth.service';
 
+/**
+ * Component for user login.
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,14 +13,26 @@ import { AuthService } from '@services/auth.service';
 export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
-  errorFlag:boolean = false
-  errorMessage: string = ''
+  /**
+   * Flag to indicate if there's an error during login.
+   */
+  errorFlag: boolean = false;
+  /**
+   * Error message to display in case of login error.
+   */
+  errorMessage: string = '';
 
+  /**
+   * User login credentials.
+   */
   user: LoginInterface = {
     email: '',
     password: '',
   };
 
+  /**
+   * Initiates the user login process.
+   */
   doLogin() {
     this.authService.login(this.user).subscribe(
       (res) => {
@@ -25,7 +40,7 @@ export class LoginComponent {
       },
       (error) => {
         this.errorFlag = true;
-        this.errorMessage = 'invalid credentials'
+        this.errorMessage = 'invalid credentials';
       }
     );
   }

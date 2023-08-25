@@ -7,61 +7,82 @@ import { Task, UpdateTaskRequest } from '@interfaces/task';
 import { SubjectService } from '@services/subject.service';
 import { TaskService } from '@services/task.service';
 
+/**
+ * Component for displaying a form to add or update a task.
+ */
 @Component({
   selector: 'app-form-task',
   templateUrl: './form-task.component.html',
-  styleUrls: ['./form-task.component.css']
 })
 export class FormTaskComponent {
-
   constructor(
     private subjectService: SubjectService,
     private taskService: TaskService,
-    private router : Router
-  ){}
+    private router: Router
+  ) {}
 
-  subjectsOptions:Subject[]=[];
+  // List of available subject options
+  subjectsOptions: Subject[] = [];
 
-  @Input() actionForm!:FormActions;
-  @Input() task:UpdateTaskRequest ={
-    title:'',
-    description:'',
-    deadline:new Date(),
-    type:'homework',
-    subject:'',
-    _id:'',
-    done:false
-  }
+  // Action form type (create or update)
+  @Input() actionForm!: FormActions;
 
-  defaultSubject:Subject|undefined;
+  // Task to be updated (if applicable)
+  @Input() task: UpdateTaskRequest = {
+    title: '',
+    description: '',
+    deadline: new Date(),
+    type: 'homework',
+    subject: '',
+    _id: '',
+    done: false,
+  };
 
+  // Default subject option (for creating new task)
+  defaultSubject: Subject | undefined;
+
+  /**
+   * Lifecycle hook that fetches the subjects options when the component is initialized.
+   * Sets the default subject option for creating new tasks.
+   */
   ngOnInit() {
-    this.subjectService.getSubjectByUser().subscribe(res=>{
+    // Fetch subjects options for the form
+    this.subjectService.getSubjectByUser().subscribe((res) => {
       this.subjectsOptions = res;
-      this.defaultSubject = res[0]
-    })
+      this.defaultSubject = res[0];
+    });
   }
 
-  handleSubmit(){
-    if(this.actionForm==='create'){
-      this.addTask()
-    }else{
-      this.updateTask()
+  /**
+   * Handles the form submission based on the actionForm type.
+   * Calls either addTask() or updateTask() accordingly.
+   */
+  handleSubmit() {
+    if (this.actionForm === 'create') {
+      this.addTask();
+    } else {
+      this.updateTask();
     }
   }
 
-  addTask(){
-    const {_id, done, ...newTask}= this.task
-    this.taskService.createTask(newTask).subscribe((res)=>{
-      this.router.navigate(['../'])
-    })
+  /**
+   * Adds a new task using the taskService's createTask() method.
+   * Navigates back to the task list after successful creation.
+   */
+  addTask() {
+    const { _id, done, ...newTask } = this.task;
+    this.taskService.createTask(newTask).subscribe((res) => {
+      this.router.navigate(['../']);
+    });
   }
 
-  updateTask(){
-    this.taskService.updateTask(this.task).subscribe((res)=>{
-      this.router.navigate(['../'])
-    })
+  /**
+   * Adds a new task using the taskService's createTask() method.
+   * Navigates back to the task list after successful creation.
+   */
+  updateTask() {
+    this.taskService.updateTask(this.task).subscribe((res) => {
+      this.router.navigate(['../']);
+    });
   }
-
-
 }

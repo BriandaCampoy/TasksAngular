@@ -4,6 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 
+/**
+ * Routes configuration for the authentication-related pages.
+ */
 const routes: Routes = [
   {
     path:'',

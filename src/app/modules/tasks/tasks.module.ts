@@ -10,7 +10,9 @@ import { TasksListComponent } from './pages/tasks-list/tasks-list.component';
 import { FormTaskComponent } from './components/form-task/form-task.component';
 import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 
-
+/**
+ * Module for managing tasks and related components.
+ */
 @NgModule({
   declarations: [
     AddTaskComponent,

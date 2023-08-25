@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row g-3">
     <form
-      #searchForm="ngForm" class="col-md-4 d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+      #searchForm="ngForm" (submit)="doSearch()" class="col-md-4 d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
     >
       <div class="input-group">
         <input
@@ -13,7 +13,7 @@
           [(ngModel)]="searchedValue"
         />
         <div class="input-group-append">
-          <button (click)="doSearch()" class="btn btn-primary" type="button">
+          <button class="btn btn-primary" type="submit">
             <i class="fas fa-search fa-sm"></i>
           </button>
         </div>

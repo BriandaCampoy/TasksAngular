@@ -1,10 +1,18 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { DatePipe } from '@angular/common';
 
+/**
+ * A custom pipe to format date strings into a specific format.
+ */
 @Pipe({
   name: 'dateFormater',
 })
 export class DateFormaterPipe implements PipeTransform {
+  /**
+   * Transforms a given date string into a formatted date string.
+   * @param value - The date string to be formatted.
+   * @returns The formatted date string or 'N/A' if the input is invalid.
+   */
   transform(value: string): string {
     const datePipe: DatePipe = new DatePipe('en-US');
     // Convert the date string to a Date object.

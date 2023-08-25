@@ -5,28 +5,34 @@ import { SubjectComponent } from './pages/subject/subject.component';
 import { AddSubjectComponent } from './pages/add-subject/add-subject.component';
 import { EditSubjectComponent } from './pages/edit-subject/edit-subject.component';
 
+/**
+ * Module routing configuration for managing subjects-related functionality.
+ */
 const routes: Routes = [
   {
     path: '',
-    component:SubjectsListComponent
+    component: SubjectsListComponent,
   },
   {
-    path:'addsubject',
-    pathMatch:'full',
-    component:AddSubjectComponent
+    path: 'addsubject',
+    pathMatch: 'full',
+    component: AddSubjectComponent,
   },
   {
-    path:':id',
-    component: SubjectComponent
+    path: ':id',
+    component: SubjectComponent,
   },
   {
-    path:'edit/:id',
-    component: EditSubjectComponent
-  }
+    path: 'edit/:id',
+    component: EditSubjectComponent,
+  },
 ];
 
+/**
+ * Imports the defined routes into the router module.
+ */
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class SubjectsRoutingModule { }
+export class SubjectsRoutingModule {}

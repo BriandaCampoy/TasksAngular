@@ -7,10 +7,12 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationModalComponent } from 'src/app/modules/shared/components/confirmation-modal/confirmation-modal.component';
 import { SubjectService } from '@services/subject.service';
 
+/**
+ * Component for displaying subject details and related tasks.
+ */
 @Component({
   selector: 'app-subject',
   templateUrl: './subject.component.html',
-  styleUrls: ['./subject.component.css'],
 })
 export class SubjectComponent {
   constructor(
@@ -20,13 +22,25 @@ export class SubjectComponent {
     private modalService: NgbModal,
     private subjectService: SubjectService
   ) {}
+
+  /**
+   * Subject object to hold subject details.
+   */
   subject: Subject = {
     _id: this.route.snapshot.params['id'],
     name: '',
     color: '',
   };
+
+  /**
+   * Array of tasks related to the subject.
+   */
   tasksItems: Task[] = [];
 
+  /**
+   * Lifecycle hook that gets called when the component is initialized.
+   * Fetches tasks related to the subject and updates subject details.
+   */
   ngOnInit() {
     this.taskService.getTaskBySubject(this.subject._id).subscribe((tasks) => {
       this.tasksItems = tasks;
@@ -40,6 +54,10 @@ export class SubjectComponent {
     });
   }
 
+  /**
+   * Lifecycle hook that gets called when the component is initialized.
+   * Fetches tasks related to the subject and updates subject details.
+   */
   onDelete() {
     const modalRef = this.modalService.open(ConfirmationModalComponent, {
       centered: true,
